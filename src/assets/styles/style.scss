@@ -1,0 +1,14 @@
+@import 'variables.scss';
+
+.btn {
+  padding: 10px 20px;
+  border: 0;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.btn-default {
+  border: 2px solid $orange;
+  background: $orange;
+  color: #fff;
+}
