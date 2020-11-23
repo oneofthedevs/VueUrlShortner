@@ -40,7 +40,7 @@ export default {
 @import '../assets/styles/style.scss';
 
 .home{ 
-  min-height: 100vh;
+  min-height: calc(100vh - 100px);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -68,8 +68,8 @@ export default {
   display: inline;
   text-decoration: none;
   font-size: 17px;
-  color: $dark;
-  background: $orange;
+  color: $black;
+  background: $primary;
   padding: 10px 20px;
   color: #fff;
   border-radius: 5px;

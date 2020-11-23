@@ -2,7 +2,7 @@
   <nav>
     <div class="container-div">
       <div class="titled-div">
-        <h1 class="title">lazy URL</h1>
+        <h1 class="title"><router-link :to="{name: 'Home'}" class="title">Lazy URL</router-link></h1>
       </div>
       <div class="navigation-div">
         <ul class="nav-links">
@@ -23,14 +23,17 @@ export default {};
 
 nav{
   width: 100%;
-  background: $orange;
+  // background: $primary;
+  color: $darkSecondary;
 }
-title {
-  margin: 10px 0;
+.title {
+  font-weight: 100;
+  color: $darkSecondary;
 }
 .container-div {
-  margin: 0 5%;
   display: flex;
+  margin:0 5%;
+  padding-top: 10px;
 }
 .navigation-div {
   display: flex;
@@ -50,13 +53,12 @@ title {
   display: flex;
 }
 .nav-link {
-  text-decoration: none;
-  color: #fff;
+  color: $darkSecondary;
   padding: 10px 15px;
   border-bottom: 4px solid transparent;
 
 }
 .nav-link:hover {
-  border-bottom: 4px solid darkorange;
+  border-bottom: 4px solid $darkSecondary;
 }
 </style>

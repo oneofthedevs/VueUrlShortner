@@ -1,5 +1,9 @@
 @import 'variables.scss';
 
+a {
+  text-decoration: none;
+}
+
 .btn {
   padding: 10px 20px;
   border: 0;
@@ -8,8 +12,8 @@
 }
 
 .btn-default {
-  border: 2px solid $orange;
-  background: $orange;
+  border: 2px solid $primary;
+  background: $primary;
   color: #fff;
 }
 
@@ -26,5 +30,5 @@
 }
 
 .input[type="text"]:focus {
-  border: 2px solid #ffac53;
+  border: 2px solid $primary;
 }
