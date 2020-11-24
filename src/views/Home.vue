@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <div class="main-section">
-     <LinkForm @generate-link="submit" />
+     <LinkForm @submit-link="submit" :placeholderText="placeholder" :btnText = "btn"/>
     </div>
     <div class="generated" v-if="response">
       <span>Generated Link: </span><a class="link" :href="response.response.shortUrl" target="_blank">{{response.response.shortUrl}}</a>
@@ -19,7 +19,9 @@ export default {
   data: () => {
     return {
       originalUrl: '',
-      response: null
+      response: null,
+      placeholder: 'e.g. https://www.google.com',
+      btn: 'Click to shorten'
     }
   },
   methods: {
@@ -68,8 +70,7 @@ export default {
   display: inline;
   text-decoration: none;
   font-size: 17px;
-  color: $black;
-  background: $primary;
+  background: $darkSecondary;
   padding: 10px 20px;
   color: #fff;
   border-radius: 5px;
