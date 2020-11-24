@@ -4,6 +4,11 @@ a {
   text-decoration: none;
 }
 
+.container-div {
+  margin:0 5%;
+  padding-top: 10px;
+}
+
 .btn {
   padding: 10px 20px;
   border: 0;
@@ -12,9 +17,16 @@ a {
 }
 
 .btn-default {
-  border: 2px solid $primary;
-  background: $primary;
+  border: 2px solid $darkSecondary;
+  background: $darkSecondary;
   color: #fff;
+}
+
+.btn-default:disabled {
+  border: 2px solid gray;
+  background: gray;
+  color: #fff;
+  cursor: default;
 }
 
 .input[type="text"] {
@@ -30,5 +42,17 @@ a {
 }
 
 .input[type="text"]:focus {
-  border: 2px solid $primary;
+  border: 2px solid $darkSecondary;
+}
+
+@keyframes flip {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
