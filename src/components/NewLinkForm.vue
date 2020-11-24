@@ -5,14 +5,15 @@
       type="text"
       name="url"
       v-model="originalUrl"
-      placeholder="e.g. https://www.google.com"
+      :placeholder="placeholderText"
       autocomplete="off"
     />
     <button
       class="btn btn-default"
-      @click="this.$emit('generate-link', this.originalUrl)"
+      @click="this.$emit('submit-link', this.originalUrl)"
+      :disabled = '!isValid'
     >
-      Click to shorten
+      {{btnText}}
     </button>
   </div>
 </template>
@@ -20,11 +21,19 @@
 <script>
 export default {
   name: "LinkForm",
+  props: ['btnText', 'placeholderText'],
   data: () => {
     return {
       originalUrl: "",
     };
   },
+  computed: {
+    isValid() {
+      // eslint-disable-next-line no-control-regex
+      // const reg = new RegExp('https?://(www.)?[-a-zA-Z0-9@:%._+~#=]{1,256}.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&//=]*)');
+      return (this.originalUrl.length > 0);
+    }
+  }
 };
 </script>
 

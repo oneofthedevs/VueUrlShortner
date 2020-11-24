@@ -1,8 +1,8 @@
 <template>
   <nav>
-    <div class="container-div">
+    <div class="container-div d-flex">
       <div class="titled-div">
-        <h1 class="title"><router-link :to="{name: 'Home'}" class="title">Lazy URL</router-link></h1>
+        <h1><router-link :to="{name: 'Home'}" class="title">Lazy URL</router-link></h1>
       </div>
       <div class="navigation-div">
         <ul class="nav-links">
@@ -23,17 +23,19 @@ export default {};
 
 nav{
   width: 100%;
-  // background: $primary;
   color: $darkSecondary;
+}
+.d-flex {
+  display: flex;
 }
 .title {
   font-weight: 100;
-  color: $darkSecondary;
+  background: $darkSecondary;
+  color: #fff;
+  padding: 10px;
 }
-.container-div {
-  display: flex;
-  margin:0 5%;
-  padding-top: 10px;
+h1:hover {
+  animation: flip 750ms forwards;
 }
 .navigation-div {
   display: flex;
