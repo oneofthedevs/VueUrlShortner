@@ -7,12 +7,10 @@
         :btnText="btn"
       />
     </div>
-    <div class="data">
+    <div class="data" v-if="clickCount">
       <div class="row">
         <div class="text-col">
-          <Clicks :click="23" />
-        </div>
-          <div class="graph-col">
+          <Clicks :click="clickCount" />
         </div>
       </div>
     </div>
@@ -33,6 +31,7 @@ export default {
       response: null,
       placeholder: "e.g. http://localhost:5000/abr34",
       btn: "Get analytics",
+      clickCount: null
     };
   },
   methods: {
@@ -46,7 +45,8 @@ export default {
         "http://localhost:5000/analytics",
         requestOptions
       );
-      this.response = await res.json();
+      const resp = await res.json();
+      this.clickCount = resp.response.length;
     },
   },
 };
@@ -59,17 +59,17 @@ export default {
   width: 100%;
 }
 .row {
-  margin: 20px 0 0 0;
+  margin: 40px 0 0 0;
   display: flex;
   justify-content: center;
 }
 .text-col {
   flex: 1;
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
 }
 .graph-col {
-  flex: 1;
+  flex: 2;
 }
 </style>
