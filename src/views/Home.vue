@@ -1,47 +1,57 @@
 <template>
   <div class="home">
     <div class="main-section">
-     <LinkForm @submit-link="submit" :placeholderText="placeholder" :btnText = "btn"/>
+      <LinkForm
+        @submit-link="submit"
+        :placeholderText="placeholder"
+        :btnText="btn"
+      />
     </div>
     <div class="generated" v-if="response">
-      <span>Generated Link: </span><a class="link" :href="response.response.shortUrl" target="_blank">{{response.response.shortUrl}}</a>
+      <span>Generated Link: </span
+      ><a class="link" :href="response.response.shortUrl" target="_blank">{{
+        response.response.shortUrl
+      }}</a>
     </div>
   </div>
 </template>
 
 <script>
-import LinkForm from '../components/NewLinkForm';
+import LinkForm from "../components/NewLinkForm";
 export default {
-  name: 'Home',
+  name: "Home",
   components: {
-    LinkForm
+    LinkForm,
   },
   data: () => {
     return {
-      originalUrl: '',
+      originalUrl: "",
       response: null,
-      placeholder: 'e.g. https://www.google.com',
-      btn: 'Click to shorten'
-    }
+      placeholder: "e.g. https://www.google.com",
+      btn: "Click to shorten",
+    };
   },
   methods: {
     async submit(url) {
       const requestOptions = {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ url: url })
+        body: JSON.stringify({ url: url }),
       };
-      const res = await fetch('http://localhost:5000/generateURL', requestOptions);
-      this.response = await res.json()
-    }
-  }
-}
+      const res = await fetch(
+        "http://localhost:5000/generateURL",
+        requestOptions
+      );
+      this.response = await res.json();
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
-@import '../assets/styles/style.scss';
+@import "../assets/styles/style.scss";
 
-.home{ 
+.home {
   min-height: calc(100vh - 100px);
   display: flex;
   justify-content: center;
@@ -61,7 +71,7 @@ export default {
   width: 90%;
 }
 
-.generated{
+.generated {
   margin-top: 20px;
   font-size: 15px;
 }
@@ -75,5 +85,4 @@ export default {
   color: #fff;
   border-radius: 5px;
 }
-
 </style>
